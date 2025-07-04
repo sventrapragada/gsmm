@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Content</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f7f7f7;
+            min-height: 100vh;
+            padding-top: 53px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 53px;
+            background-color: #004f9b;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: left;
+            font-size: 24px;
+            font-weight: 600;
+            color: #192a3a;
+            margin: 0;
+            flex: 1;
+        }
+
+        /* Container Wrapper */
+        .containers-wrapper {
+            max-width: 1814px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1814px;
+            height: 437px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            margin: 40px auto;
+            padding: 32px;
+            position: relative;
+            display: flex;
+        }
+
+        .container:first-child {
+            margin-top: 0;
+        }
+
+        /* Plus Button */
+        .plus-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border: 2px solid #004f9b;
+            border-radius: 6px;
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .plus-btn:hover {
+            background-color: #004f9b;
+        }
+
+        .plus-btn:hover svg path {
+            fill: #ffffff;
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            position: absolute;
+            top: 20px;
+            right: 76px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #dc3545;
+            border-radius: 6px;
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #dc3545;
+        }
+
+        .delete-btn:hover svg path {
+            fill: #ffffff;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+        }
+
+        .submit-btn:hover {
+            background: #3367d6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+
+        /* Header Row Container */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 24px auto;
+            max-width: 1814px;
+            padding: 0 20px;
+        }
+
+        /* Left Section */
+        .left-section {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #004f9b;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-field {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 8px 12px;
+            min-width: 200px;
+            font-size: 16px;
+            color: #2C3E50;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #004f9b;
+            box-shadow: 0 0 0 2px rgba(0, 79, 155, 0.1);
+        }
+
+        /* Center Section */
+        .center-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .vis-btn {
+            background: #ffffff;
+            border: 2px solid #004f9b;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #004f9b;
+            transition: all 0.2s ease;
+            width: 280px;
+            min-width: 280px;
+        }
+
+        .vis-btn:hover {
+            background-color: #004f9b;
+            color: #ffffff;
+        }
+
+        .vis-btn:hover svg circle,
+        .vis-btn:hover svg path {
+            stroke: #ffffff;
+        }
+
+        .availability-text {
+            font-size: 14px;
+            color: #666;
+            margin: 16px 0;
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 1800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .file-list {
+            margin: 20px 0;
+        }
+
+        .file-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .popup-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-cancel {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-select {
+            background: #4285f4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Dummy Content</h1>
+    </header>
+
+    <!-- Header Row -->
+    <div class="header-row">
+        <h2 class="page-title">Dummy Content</h2>
+        <button class="submit-btn" onclick="navigateToVisualization2()">submit</button>
+    </div>
+
+    <!-- Containers Wrapper -->
+    <div class="containers-wrapper" id="containersWrapper">
+        <!-- First Container -->
+        <div class="container">
+            <!-- Plus Button -->
+            <button class="plus-btn" onclick="addContainer()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#004f9b"/>
+                </svg>
+            </button>
+
+            <!-- Left Section -->
+            <div class="left-section">
+                <h3 class="section-title">Dummy Content</h3>
+                <div class="input-group">
+                    <label class="input-label" for="galaxy-name">Dummy Content</label>
+                    <input class="input-field" type="text" id="galaxy-name" value="NGC 1001">
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="galaxy-type">Dummy Content</label>
+                    <select class="input-field" id="galaxy-type">
+                        <option>Dummy Content</option>
+                        <option>Dummy Content</option>
+                        <option>Dummy Content</option>
+                        <option>Dummy Content</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="curation-date">Dummy Content</label>
+                    <input class="input-field" type="date" id="curation-date" value="2023-01-15">
+                </div>
+            </div>
+
+            <!-- Center Section -->
+            <div class="center-section">
+                <button class="vis-btn" onclick="openPopup()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#004f9b" stroke-width="2"/>
+                        <path d="M12 7V17" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 12H17" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Dummy Content</span>
+                </button>
+                <p class="availability-text">Dummy Content</p>
+                <button class="vis-btn" onclick="window.location.href='visualization2.html'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 6H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 18H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Dummy Content</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h3 class="popup-title">Dummy Content</h3>
+            <div class="popup-input-group">
+                <label class="popup-label" for="pop-galaxy-name">Dummy Content</label>
+                <input class="popup-input" type="text" id="pop-galaxy-name" placeholder="E.g., NGC 1001">
+            </div>
+            <div class="popup-input-group">
+                <label class="popup-label" for="pop-galaxy-type">Dummy Content</label>
+                <select class="popup-input" id="pop-galaxy-type">
+                    <option>Dummy Content</option>
+                    <option>Dummy Content</option>
+                    <option>Dummy Content</option>
+                </select>
+            </div>
+            <div class="popup-buttons">
+                <button class="popup-btn cancel-btn" onclick="closePopup()">Dummy Content</button>
+                <button class="popup-btn ok-btn" onclick="confirmSelection()">Dummy Content</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let containerCount = 1;
+
+        function addContainer() {
+            containerCount++;
+            
+            const wrapper = document.getElementById('containersWrapper');
+            const newContainer = document.createElement('div');
+            newContainer.className = 'container';
+            
+            newContainer.innerHTML = `
+                <!-- Delete Button -->
+                <button class="delete-btn" onclick="removeContainer(this)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#dc3545"/>
+                    </svg>
+                </button>
+
+                <!-- Plus Button -->
+                <button class="plus-btn" onclick="addContainer()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#004f9b"/>
+                    </svg>
+                </button>
+
+                                 <!-- Left Section -->
+                 <div class="left-section">
+                     <h3 class="section-title">Dummy Content</h3>
+                     <div class="input-group">
+                         <label class="input-label" for="galaxy-name">Dummy Content</label>
+                         <input class="input-field" type="text" id="galaxy-name" value="Analysis_${containerCount}">
+                     </div>
+                     <div class="input-group">
+                         <label class="input-label" for="galaxy-type">Dummy Content</label>
+                         <select class="input-field" id="galaxy-type">
+                             <option>Dummy Content</option>
+                             <option>Dummy Content</option>
+                             <option>Dummy Content</option>
+                             <option>Dummy Content</option>
+                         </select>
+                     </div>
+                     <div class="input-group">
+                         <label class="input-label" for="curation-date">Dummy Content</label>
+                         <input class="input-field" type="date" id="curation-date" value="2023-01-15">
+                     </div>
+                 </div>
+
+                 <!-- Center Section -->
+                <div class="center-section">
+                    <button class="vis-btn" onclick="openPopup()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#004f9b" stroke-width="2"/>
+                            <path d="M12 7V17" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M7 12H17" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Dummy Content</span>
+                    </button>
+                    <p class="availability-text">Dummy Content</p>
+                    <button class="vis-btn" onclick="window.location.href='visualization2.html'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 12H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M3 6H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M3 18H21" stroke="#004f9b" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Dummy Content</span>
+                    </button>
+                </div>
+            `;
+            
+            wrapper.appendChild(newContainer);
+        }
+
+        function removeContainer(button) {
+            button.parentElement.remove();
+        }
+
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function navigateToVisualization2() {
+            window.location.href = 'visualization2.html';
+        }
+
+        function confirmSelection() {
+            const name = document.getElementById('pop-galaxy-name').value;
+            const type = document.getElementById('pop-galaxy-type').value;
+            
+            if (name && type) {
+                // Here you would typically do something with the selected data
+                console.log('Galaxy Name:', name, 'Type:', type);
+                closePopup();
+                 window.location.href = 'visualization3.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+</html> 
